@@ -23,12 +23,12 @@
         .top-banner {
             witdh: 350px;
             height: 30px;
-            background: #737373;
+            background: #c6c7c8;
         }
         .bottom-banner{
-            background-color: #737373;
+            background-color: #c6c7c8;
             witdh: 350px;
-            height: 30px;
+            height: 50px;
         }
         .car-plaque{
             display: flex;
@@ -37,6 +37,8 @@
             justify-content: flex-start;
             align-items: stretch;
             align-content: stretch;
+            border: #c6c7c8 solid 1px;
+            border-radius: 3px;
         }
     </style>
     <style>
@@ -46,35 +48,39 @@
     <div class="container-md">
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">Navbar</span>
+            <span class="navbar-brand mb-0 h1">WaggieChecker</span>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             </form>
-            <a class="navbar-brand" href="#">
                 <img src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
         </div>
     </nav>
+    </div>
 
-
+    <div class="container-md">
+        <select class="form-select" aria-label="Selecteer een Automerk">
+            <option selected>Selecteer een AutoMerk</option>
+            <option value="1">Audi</option>
+            <option value="2"></option>
+            <option value="3">Three</option>
+        </select>
+    </div>
 
     <div class="car-grid">
         <div class="car-plaque">
-            <div class="top-banner"></div>
+            <div class="top-banner"><a href="">Mitsubishi Lancer 2006</a></div>
             <div class="image"><img src="<?php echo asset('storage/car1.jpg')?>" height="250px" width="350px"></div>
-            <div class="bottom-banner"></div>
+            <div class="bottom-banner">Prijs: 2500</div>
         </div>
         <div class="car-plaque">
-            <div class="top-banner"></div>
+            <div class="top-banner">Dacia Logan 2014</div>
             <div class="image"><img src="<?php echo asset('storage/car2.jpg')?>" height="250px" width="350px"></div>
-            <div class="bottom-banner"></div>
+            <div class="bottom-banner">Prijs: 5900</div>
         </div>
         <div class="car-plaque">
-            <div class="top-banner"></div>
+            <div class="top-banner">Honda Prelude 1998</div>
             <div class="image"><img src="<?php echo asset('storage/car3.jpg')?>" height="250px" width="350px"></div>
-            <div class="bottom-banner"></div>
+            <div class="bottom-banner">Prijs: 4000</div>
         </div>
-    </div>
-    </div>
-            </head>
 
 </html>
