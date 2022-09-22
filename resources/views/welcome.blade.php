@@ -50,9 +50,9 @@
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">WaggieChecker</span>
             <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search">
             </form>
-                <img src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                <img src="" alt="" width="30" height="24" class="d-inline-block align-text-top">
         </div>
     </nav>
     </div>
@@ -69,7 +69,7 @@
     <div class="car-grid">
         <div class="car-plaque">
             <div class="top-banner"><a href="">Mitsubishi Lancer 2006</a></div>
-            <div class="image"><img src="<?php echo asset('storage/car1.jpg')?>" height="250px" width="350px"></div>
+            <div class="image"><img src="<?php use allejo\Socrata\SodaDataset;echo asset('storage/car1.jpg')?>" height="250px" width="350px"></div>
             <div class="bottom-banner">Prijs: 2500</div>
         </div>
         <div class="car-plaque">
@@ -82,5 +82,17 @@
             <div class="image"><img src="<?php echo asset('storage/car3.jpg')?>" height="250px" width="350px"></div>
             <div class="bottom-banner">Prijs: 4000</div>
         </div>
+    <?php $sc = new \allejo\Socrata\SodaClient("opendata.rdw.nl");
+        $ds = new SodaDataSet($sc, 'm9d7-ebf2');
+        $soql = new \allejo\Socrata\SoqlQuery();
+        $soql->select("merk","vervaldatum_apk","kenteken","cilinderinhoud")->limit(1);
 
+
+        $results = $ds->getDataset($soql);
+        $myjson = json_encode($results);
+        $myjson2 = json_decode($myjson);
+        echo $myjson;
+        ?>
+
+    </div>
 </html>
