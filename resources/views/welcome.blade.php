@@ -2,9 +2,9 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"><head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <title>WaggieChecker</title>
-
+<?php  use allejo\Socrata\SodaDataset ?>
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -39,6 +39,7 @@
             align-content: stretch;
             border: #c6c7c8 solid 1px;
             border-radius: 3px;
+            box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.2);
         }
     </style>
     <style>
@@ -65,34 +66,39 @@
             <option value="3">Three</option>
         </select>
     </div>
+    <?php
+    $sc = new \allejo\Socrata\SodaClient('opendata.rdw.nl');
+    $ds = new SodaDataSet($sc, 'm9d7-ebf2');
+
+    $soql = new \allejo\Socrata\SoqlQuery();
+    $soql->select("merk","kenteken","handelsbenaming")->where("kenteken = '99TJNP'");
+    $soql2 = new \allejo\Socrata\SoqlQuery();
+    $soql2->select("merk","handelsbenaming","kenteken")->where("kenteken = '1TJB99'");
+    $soql3 = new \allejo\Socrata\SoqlQuery();
+    $soql3->select("merk","uitvoering","kenteken")->where("kenteken = 'P259HF'");
+
+    $car1 = $ds->getDataset($soql);
+    $car2 = $ds->getDataset($soql2);
+    $car3 = $ds->getDataset($soql3);
+
+    ?>
 
     <div class="car-grid">
         <div class="car-plaque">
-            <div class="top-banner"><a href="">Mitsubishi Lancer 2006</a></div>
-            <div class="image"><img src="<?php use allejo\Socrata\SodaDataset;echo asset('storage/car1.jpg')?>" height="250px" width="350px"></div>
+            <div class="top-banner"><a href="">{{$car1[0]['merk']. " " .$car1[0]["handelsbenaming"]}}</a></div>
+            <div class="image"><img src="{{asset('storage/car1.jpg')}}" height="250px" width="350px"></div>
             <div class="bottom-banner">Prijs: 2500</div>
         </div>
         <div class="car-plaque">
-            <div class="top-banner">Dacia Logan 2014</div>
-            <div class="image"><img src="<?php echo asset('storage/car2.jpg')?>" height="250px" width="350px"></div>
+            <div class="top-banner">{{$car2[0]["merk"]." " .$car2[0]["handelsbenaming"]}}</div>
+            <div class="image"><img src="{{asset('storage/car2.jpg')}}" height="250px" width="350px"></div>
             <div class="bottom-banner">Prijs: 5900</div>
         </div>
         <div class="car-plaque">
-            <div class="top-banner">Honda Prelude 1998</div>
-            <div class="image"><img src="<?php echo asset('storage/car3.jpg')?>" height="250px" width="350px"></div>
+            <div class="top-banner"></div>
+            <div class="image"><img src="{{asset('storage/car3.jpg')}}" height="250px" width="350px"></div>
             <div class="bottom-banner">Prijs: 4000</div>
         </div>
-    <?php $sc = new \allejo\Socrata\SodaClient("opendata.rdw.nl");
-        $ds = new SodaDataSet($sc, 'm9d7-ebf2');
-        $soql = new \allejo\Socrata\SoqlQuery();
-        $soql->select("merk","vervaldatum_apk","kenteken","cilinderinhoud")->limit(1);
-
-
-        $results = $ds->getDataset($soql);
-        $myjson = json_encode($results);
-        $myjson2 = json_decode($myjson);
-        echo $myjson;
-        ?>
 
     </div>
 </html>
