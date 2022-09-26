@@ -85,7 +85,7 @@
 
     <div class="car-grid">
         <div class="car-plaque">
-            <div class="top-banner"><a href="">{{$car1[0]['merk']. " " .$car1[0]["handelsbenaming"]}}</a></div>
+            <div class="top-banner"><a href="/car">{{$car1[0]['merk']. " " .$car1[0]["handelsbenaming"]}}</a></div>
             <div class="image"><img src="{{asset('storage/car1.jpg')}}" height="250px" width="350px"></div>
             <div class="bottom-banner">Prijs: 2500</div>
         </div>
