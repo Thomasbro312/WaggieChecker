@@ -58,13 +58,15 @@
                 <img src="{{asset("storage/car1.jpg")}}" alt="">
             </div>
         </div>
-        <div class="containerSpecs">
-            <p>Merk: {{$car1[0]['merk']}}</p>
-            <p>Model: {{$car1[0]['handelsbenaming']}}</p>
-            <p>Kleur: {{$car1[0]['eerste_kleur']}}</p>
-            <p>Inrichting: {{$car1[0]['inrichting']}}</p>
-            <p>APK vervaldatum: {{$car1[0]['vervaldatum_apk_dt']}}</p>
-            <p>Aantal cilinders: {{$car1[0]['aantal_cilinders']}}</p>
-            <p>Kenteken: {{$car1[0]['kenteken']}}</p>
+        <div class="container-md">
+            <div class="containerSpecs">
+                <p>Merk: {{[0]['merk']}}</p>
+                <p>Model: {{[0]['handelsbenaming']}}</p>
+                <p>Kleur: {{[0]['eerste_kleur']}}</p>
+                <p>Inrichting: {{[0]['inrichting']}}</p>
+                <p>APK vervaldatum: {{[0]['vervaldatum_apk_dt']}}</p>
+                <p>Aantal cilinders: {{[0]['aantal_cilinders']}}</p>
+                <p>Kenteken: {{[0]['kenteken']}}</p>
+            </div>
         </div>
     </body>

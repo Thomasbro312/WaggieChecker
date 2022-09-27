@@ -55,6 +55,7 @@
             </form>
                 <img src="" alt="" width="30" height="24" class="d-inline-block align-text-top">
         </div>
+        <buttton><a href="{{route('car.create')}}">Create</a></buttton>
     </nav>
     </div>
 

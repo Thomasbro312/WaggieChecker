@@ -16,11 +16,14 @@ return new class extends Migration
         Schema::create('car_storage', function (Blueprint $table) {
             $table->id();
             $table->string("merk");
-            $table->string("handelbenaming");
+            $table->string("handelsbenaming");
             $table->dateTime("apk_verloop_datum");
             $table->integer("vermogen_in_pk");
             $table->integer("vermogen_in_kw");
+            $table->boolean("auto_rook");
             $table->string("kenteken");
+            $table->text('beschrijving')->nullable();
+            $table->float('prijs');
             $table->timestamps();
         });
     }

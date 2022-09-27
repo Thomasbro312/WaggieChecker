@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\SellCarController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,9 @@ Route::get('/car',function (){
     return view("carView");
 });
 
+Route::group(['prefix' => 'car'], function(){
+    Route::resource('car', SellCarController::class );
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
