@@ -27,7 +27,7 @@
     $sc = new \allejo\Socrata\SodaClient('opendata.rdw.nl');
     $ds = new SodaDataSet($sc, 'm9d7-ebf2');
     $soql = new \allejo\Socrata\SoqlQuery();
-    $soql->where("kenteken = '99TJNP'");
+    $soql->where("kenteken =". );
 
     $car1 = $ds->getDataset($soql)
 ?>

@@ -13,17 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('car_storage', function (Blueprint $table) {
+        Schema::create('car_storages', function (Blueprint $table) {
             $table->id();
             $table->string("merk");
             $table->string("handelsbenaming");
-            $table->dateTime("apk_verloop_datum");
+            $table->dateTime("apk_verloop_datum")->nullable();
             $table->integer("vermogen_in_pk");
             $table->integer("vermogen_in_kw");
-            $table->boolean("auto_rook");
-            $table->string("kenteken");
+            $table->boolean("auto_rook")->nullable();
+            $table->string("kenteken")->nullable();
             $table->text('beschrijving')->nullable();
-            $table->float('prijs');
+            $table->float('prijs')->nullable();
             $table->timestamps();
         });
     }

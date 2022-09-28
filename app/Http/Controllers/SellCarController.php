@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CarModel;
+use App\Models\CarStorage;
 use Illuminate\Http\Request;
 
 class SellCarController extends Controller
@@ -14,7 +14,7 @@ class SellCarController extends Controller
      */
     public function index()
     {
-        $car = CarModel::all();
+        $car = CarStorage::all();
         return view('index')->with('Car', $car);
     }
 
@@ -36,24 +36,20 @@ class SellCarController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'merk' => 'required',
-            'handelsbenaming' => 'required',
-            'vermogen_in_pk' => 'required',
-            'vermogen_in_kw' => 'required',
-            'kenteken' => 'required'
-        ]);
 
-        $car = new CarModel;
+
+        $car = new CarStorage();
 
         $car->merk = $request->merk;
         $car->handelsbenaming = $request->handelsbenaming;
         $car->vermogen_in_pk = $request->vermogen_in_pk;
         $car->vermogen_in_kw = $request->vermogen_in_kw;
-        $car->kenteken = $request->kenteken;
         $car->auto_rook = $request->auto_rook;
+        $car->kenteken = $request->kenteken;
+        $car->beschrijving = $request->beschrijving;
+        $car->prijs = $request->prijs;
 
-        CarModel::create($request->all());
+        CarStorage::create($request->all());
 
 
         return redirect()->route('car.index');
