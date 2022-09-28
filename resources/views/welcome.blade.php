@@ -4,7 +4,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <title>WaggieChecker</title>
-<?php  use allejo\Socrata\SodaDataset ?>
+<?php  use allejo\Socrata\SodaClient;use allejo\Socrata\SodaDataset;use allejo\Socrata\SoqlQuery;use Illuminate\Support\Facades\DB;
+$carArray = DB::table('car_storages')->get();
+$cars = json_decode(json_encode($carArray), true);
+?>
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -53,53 +56,62 @@
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search">
             </form>
+            <button type="button" class="btn btn-primary"><a href="car/create">Maak Advert.</a></button>
                 <img src="" alt="" width="30" height="24" class="d-inline-block align-text-top">
         </div>
-        <buttton><a href="{{route('car.create')}}">Create</a></buttton>
     </nav>
     </div>
 
     <div class="container-md">
         <select class="form-select" aria-label="Selecteer een Automerk">
             <option selected>Selecteer een AutoMerk</option>
-            <option value="1">Audi</option>
-            <option value="2"></option>
-            <option value="3">Three</option>
+            <option value="1">Temp</option>
+            <option value="2">Temp</option>
+            <option value="3">Temp</option>
         </select>
     </div>
-    <?php
-    $sc = new \allejo\Socrata\SodaClient('opendata.rdw.nl');
-    $ds = new SodaDataSet($sc, 'm9d7-ebf2');
+            <?php
+                $sc = new SodaClient('opendata.rdw.nl');
+                $ds = new SodaDataSet($sc, 'm9d7-ebf2');
+                $soql = new SoqlQuery();
+                $soql->select("merk","kenteken","handelsbenaming")->where("kenteken = '99TJNP'");
+                $carData = $ds->getDataset($soql);
 
-    $soql = new \allejo\Socrata\SoqlQuery();
-    $soql->select("merk","kenteken","handelsbenaming")->where("kenteken = '99TJNP'");
-    $soql2 = new \allejo\Socrata\SoqlQuery();
-    $soql2->select("merk","handelsbenaming","kenteken")->where("kenteken = '1TJB99'");
-    $soql3 = new \allejo\Socrata\SoqlQuery();
-    $soql3->select("merk","uitvoering","kenteken")->where("kenteken = 'P259HF'");
+                // Temp fix because i dont know how to fix
+                $soql1 = new SoqlQuery();
+                $soql1->select("merk","kenteken","handelsbenaming")->where("kenteken = '1TJB99'");
+                $carData1 = $ds->getDataset($soql);
 
-    $car1 = $ds->getDataset($soql);
-    $car2 = $ds->getDataset($soql2);
-    $car3 = $ds->getDataset($soql3);
+                $soql2 = new SoqlQuery();
+                $soql2->select("merk","kenteken","handelsbenaming")->where("kenteken '61NSSV'");
+                $carData2 = $ds->getDataset($soql);
 
-    ?>
+            ?>
 
     <div class="car-grid">
-        <div class="car-plaque">
-            <div class="top-banner"><a href="/car">{{$car1[0]['merk']. " " .$car1[0]["handelsbenaming"]}}</a></div>
-            <div class="image"><img src="{{asset('storage/car1.jpg')}}" height="250px" width="350px"></div>
-            <div class="bottom-banner">Prijs: 2500</div>
-        </div>
-        <div class="car-plaque">
-            <div class="top-banner">{{$car2[0]["merk"]." " .$car2[0]["handelsbenaming"]}}</div>
-            <div class="image"><img src="{{asset('storage/car2.jpg')}}" height="250px" width="350px"></div>
-            <div class="bottom-banner">Prijs: 5900</div>
-        </div>
-        <div class="car-plaque">
-            <div class="top-banner"></div>
-            <div class="image"><img src="{{asset('storage/car3.jpg')}}" height="250px" width="350px"></div>
-            <div class="bottom-banner">Prijs: 4000</div>
-        </div>
 
-    </div>
+        @foreach($cars as $items)
+        <div class="car-plaque">
+                <div class="top-banner"><a href="{{$items['pagina']}}">{{$items['merk']." ".$items['handelsbenaming']}}</a></div>
+                <div class="image"><img src="{{asset($items['img_link'])}}" height="250px" width="350px"></div>
+                <div class="bottom-banner">Prijs: {{$items['prijs']}} Euro<br> Kenteken: {{strtoupper($items['kenteken'])}}</div>
+            </div>
+        @endforeach
+
+{{--            <div class="car-plaque">--}}
+{{--                <?php $soql->select("merk","kenteken","handelsbenaming")->where("kenteken = '99TJNP'");--}}
+{{--                $carData = $ds->getDataset($soql);?>--}}
+{{--                <div class="top-banner"><a href="/car">{{$carData[0]['merk']. " " .$carData[0]["handelsbenaming"]}}</a></div>--}}
+{{--                <div class="image"><img src="{{asset('storage/car1.jpg')}}" height="250px" width="350px"></div>--}}
+{{--                <div class="bottom-banner">Prijs: 2500</div>--}}
+{{--            </div>--}}
+
+{{--            <div class="car-plaque">--}}
+{{--                <?php $soql->select("merk","kenteken","handelsbenaming")->where("kenteken = '99TJNP'");--}}
+{{--                $carData = $ds->getDataset($soql);?>--}}
+{{--                <div class="top-banner"><a href="/car">{{$carData[0]['merk']. " " .$carData[0]["handelsbenaming"]}}</a></div>--}}
+{{--                <div class="image"><img src="{{asset('storage/car1.jpg')}}" height="250px" width="350px"></div>--}}
+{{--                <div class="bottom-banner">Prijs: 2500</div>--}}
+{{--            </div>--}}
+        </div>
 </html>

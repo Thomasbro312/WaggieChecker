@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CarStorage;
 use Illuminate\Http\Request;
+use Illuminate\support\Facades\DB;
 
 class SellCarController extends Controller
 {
@@ -12,10 +13,10 @@ class SellCarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $car = CarStorage::all();
-        return view('index')->with('Car', $car);
+        $cars = DB::table('car_storages')->get();
+        return view('welcome', ['cars'=> $cars]);
     }
 
     /**
@@ -49,7 +50,7 @@ class SellCarController extends Controller
         $car->beschrijving = $request->beschrijving;
         $car->prijs = $request->prijs;
 
-        CarStorage::create($request->all());
+        $car->save();
 
 
         return redirect()->route('car.index');

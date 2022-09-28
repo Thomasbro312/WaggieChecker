@@ -21,9 +21,12 @@ Route::get('/', function () {
 Route::get('/car',function (){
     return view("carView");
 });
+Route::get('/car2',function (){
+    return view("carView2");
+});
 
 Route::group(['prefix' => 'car'], function(){
-    Route::resource('car', SellCarController::class );
+    Route::resource('car', SellCarController::class);
 });
 
 Route::get('/dashboard', function () {

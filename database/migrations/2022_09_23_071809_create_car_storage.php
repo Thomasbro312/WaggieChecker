@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string("kenteken")->nullable();
             $table->text('beschrijving')->nullable();
             $table->float('prijs')->nullable();
+            $table->text('img_link')->nullable();
+            $table->text('pagina')->nullable();
             $table->timestamps();
         });
     }

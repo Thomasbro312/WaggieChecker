@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"><head>
     <meta charset="utf-8">
-    <?php  use allejo\Socrata\SodaDataset
-    ?>
+    <?php  use allejo\Socrata\SodaDataset ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>WaggieChecker</title>
@@ -28,7 +27,7 @@
     $sc = new \allejo\Socrata\SodaClient('opendata.rdw.nl');
     $ds = new SodaDataSet($sc, 'm9d7-ebf2');
     $soql = new \allejo\Socrata\SoqlQuery();
-    $soql->where("kenteken = '99TJNP'");
+    $soql->where("kenteken = '1TJB99'");
 
     $car = $ds->getDataset($soql);
 ?>
@@ -48,7 +47,7 @@
         <div class="container">
             <div class="carTitle">
                 <h1>{{$car[0]["handelsbenaming"] }}</h1>
-                <h2>Prijs: 4000 Euro</h2>
+                <h2>Prijs: 5900 Euro</h2>
             </div>
         </div>
         <div class="container">
@@ -57,7 +56,7 @@
             </div>
 
             <div class="img_container">
-                <img src="{{asset("storage/car1.jpg")}}" width="800" height="533">
+                <img src="{{asset("storage/car2.jpg")}}" width="800" height="533" alt="">
             </div>
         </div>
         <div class="container-md">
