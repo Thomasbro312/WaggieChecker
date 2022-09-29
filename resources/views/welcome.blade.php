@@ -57,19 +57,18 @@ $cars = json_decode(json_encode($carArray), true);
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search">
             </form>
             <button type="button" class="btn btn-primary"><a href="car/create">Maak Advert.</a></button>
-                <img src="" alt="" width="30" height="24" class="d-inline-block align-text-top">
         </div>
     </nav>
     </div>
 
-    <div class="container-md">
-        <select class="form-select" aria-label="Selecteer een Automerk">
-            <option selected>Selecteer een AutoMerk</option>
-            <option value="1">Temp</option>
-            <option value="2">Temp</option>
-            <option value="3">Temp</option>
-        </select>
-    </div>
+{{--    <div class="container-md">--}}
+{{--        <select class="form-select" aria-label="Selecteer een Automerk">--}}
+{{--            <option selected>Selecteer een AutoMerk</option>--}}
+{{--            <option value="1">Temp</option>--}}
+{{--            <option value="2">Temp</option>--}}
+{{--            <option value="3">Temp</option>--}}
+{{--        </select>--}}
+{{--    </div>--}}
             <?php
                 $sc = new SodaClient('opendata.rdw.nl');
                 $ds = new SodaDataSet($sc, 'm9d7-ebf2');
@@ -92,9 +91,9 @@ $cars = json_decode(json_encode($carArray), true);
 
         @foreach($cars as $items)
         <div class="car-plaque">
-                <div class="top-banner"><a href="{{$items['pagina']}}">{{$items['merk']." ".$items['handelsbenaming']}}</a></div>
+            <a href="{{$items['pagina']}}"><div class="top-banner">{{$items['merk']." ".$items['handelsbenaming']}}</div>
                 <div class="image"><img src="{{asset($items['img_link'])}}" height="250px" width="350px"></div>
-                <div class="bottom-banner">Prijs: {{$items['prijs']}} Euro<br> Kenteken: {{strtoupper($items['kenteken'])}}</div>
+                <div class="bottom-banner">Prijs: {{$items['prijs']}} Euro<br> Kenteken: {{strtoupper($items['kenteken'])}}</div></a>
             </div>
         @endforeach
 

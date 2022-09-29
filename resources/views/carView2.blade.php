@@ -4,7 +4,7 @@
     <?php  use allejo\Socrata\SodaDataset ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <title>WaggieChecker</title>
+    <title>{{$car[0]["merk"]}} {{$car[0]["handelsbenaming"] }}</title>
         <!-- Fonts -->
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -23,6 +23,25 @@
             width: 400px;
         }
     </style>
+    <style>
+        .gridcontainer{
+            grid-template-columns: 100px 100px;
+            grid-template-rows: 80px 80px;
+            column-gap: 10px;
+            row-gap: 15px;
+        }
+        .gridcontainer-a{
+            grid-column: 1;
+            grid-row: 1/2;
+        }
+        .gridcontainer-b{
+            grid-column: 1;
+            grid-row: 1/3;
+        }
+        .container-fluid a{
+            color: white;
+        }
+    </style>
 <?php
     $sc = new \allejo\Socrata\SodaClient('opendata.rdw.nl');
     $ds = new SodaDataSet($sc, 'm9d7-ebf2');
@@ -38,7 +57,7 @@
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search">
             </form>
-            <img src="" alt="" width="30" height="24" class="d-inline-block align-text-top">
+            <button type="button" class="btn btn-primary"><a href="car/create">Maak Advert.</a></button>
         </div>
     </nav>
 </div>
@@ -46,28 +65,26 @@
     <body>
         <div class="container">
             <div class="carTitle">
-                <h1>{{$car[0]["handelsbenaming"] }}</h1>
+                <h1>{{$car[0]["merk"]}} {{$car[0]["handelsbenaming"] }}</h1>
                 <h2>Prijs: 5900 Euro</h2>
             </div>
         </div>
         <div class="container">
-            <div class="carDescription">
+            <div class="gridcontainer-a">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti eius fugiat, iure minus nobis quas quos veritatis! Accusantium delectus distinctio ipsa laboriosam minus natus quia quidem similique, soluta tempore?</p>
+            <h3>Specificaties</h3>
+                <div class="gridcontainer-c">
+                    <p>Merk: {{$car[0]['merk']}}</p>
+                    <p>Model: {{$car[0]['handelsbenaming']}}</p>
+                    <p>Kleur: {{$car[0]['eerste_kleur']}}</p>
+                    <p>Inrichting: {{$car[0]['inrichting']}}</p>
+                    <p>APK vervaldatum: {{$car[0]['vervaldatum_apk_dt']}}</p>
+                    <p>Aantal cilinders: {{$car[0]['aantal_cilinders']}}</p>
+                    <p>Kenteken: {{$car[0]['kenteken']}}</p>
+                </div>
             </div>
-
-            <div class="img_container">
+            <div class="gridcontainer-b">
                 <img src="{{asset("storage/car2.jpg")}}" width="800" height="533" alt="">
-            </div>
-        </div>
-        <div class="container-md">
-            <div class="containerSpecs">
-                <p>Merk: {{$car[0]['merk']}}</p>
-                <p>Model: {{$car[0]['handelsbenaming']}}</p>
-                <p>Kleur: {{$car[0]['eerste_kleur']}}</p>
-                <p>Inrichting: {{$car[0]['inrichting']}}</p>
-                <p>APK vervaldatum: {{$car[0]['vervaldatum_apk_dt']}}</p>
-                <p>Aantal cilinders: {{$car[0]['aantal_cilinders']}}</p>
-                <p>Kenteken: {{$car[0]['kenteken']}}</p>
             </div>
         </div>
     </body>

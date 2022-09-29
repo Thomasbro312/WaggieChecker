@@ -4,6 +4,18 @@
     <title>Auto verkoop Form</title>
     {{ csrf_field() }}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    .form-group{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: stretch;
+        align-content: stretch;
+        width: 550px;
+
+    }
+</style>
 </head>
 <body>
     <div class="card">
@@ -25,7 +37,7 @@
                     <label for="autoForm">Voer kenteken in</label>
                     <input type="text" id="kenteken" name="kenteken">
                 </div>
-                <div>
+                <div class="form-group">
                     <label for="autoForm">Beschrijving</label>
                     <textarea id="beschrijving" name="beschrijving"></textarea>
                 </div>
@@ -45,7 +57,7 @@
                     <label for="autoForm">Vermogen in KW</label>
                     <input type="text" id="vermogen_in_kw" name="vermogen_in_kw">
                 </div>
-
+                <br>
 
 
                 <button type="submit" class="btn btn-primary">Submit</button>
