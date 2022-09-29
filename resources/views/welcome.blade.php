@@ -86,16 +86,28 @@ $cars = json_decode(json_encode($carArray), true);
                 $carData2 = $ds->getDataset($soql);
 
             ?>
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="car-grid">
 
         @foreach($cars as $items)
-        <div class="car-plaque">
-            <a href="{{$items['pagina']}}"><div class="top-banner">{{$items['merk']." ".$items['handelsbenaming']}}</div>
-                <div class="image"><img src="{{asset($items['img_link'])}}" height="250px" width="350px"></div>
-                <div class="bottom-banner">Prijs: {{$items['prijs']}} Euro<br> Kenteken: {{strtoupper($items['kenteken'])}}</div></a>
+            <div class="car-plaque">
+                <a href="{{$items['pagina']}}">
+                    <div class="top-banner"><b>{{$items['merk']." ".$items['handelsbenaming']}}</b></div>
+                    <div class="image"><img src="{{asset($items['img_link'])}}" height="250px" width="350px"></div>
+                    <div class="bottom-banner"><b>Prijs:</b> &euro; {{$items['prijs']}}<br> <b>Kenteken:</b> {{strtoupper($items['kenteken'])}}</div>
+                </a>
             </div>
         @endforeach
+    </div>
 
 {{--            <div class="car-plaque">--}}
 {{--                <?php $soql->select("merk","kenteken","handelsbenaming")->where("kenteken = '99TJNP'");--}}
@@ -112,5 +124,4 @@ $cars = json_decode(json_encode($carArray), true);
 {{--                <div class="image"><img src="{{asset('storage/car1.jpg')}}" height="250px" width="350px"></div>--}}
 {{--                <div class="bottom-banner">Prijs: 2500</div>--}}
 {{--            </div>--}}
-        </div>
 </html>

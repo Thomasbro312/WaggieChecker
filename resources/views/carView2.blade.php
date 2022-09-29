@@ -4,7 +4,7 @@
     <?php  use allejo\Socrata\SodaDataset ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <title>{{$car[0]["merk"]}} {{$car[0]["handelsbenaming"] }}</title>
+    <title>WaggieChecker</title>
         <!-- Fonts -->
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -16,7 +16,6 @@
             flex-direction: row;
             flex-wrap: nowrap;
             justify-content: space-around;
-            align-items: center;
             align-content: stretch;
         }
         .carDescription{
@@ -41,6 +40,22 @@
         .container-fluid a{
             color: white;
         }
+        .gridcontainer-img{
+            display: grid;
+            grid-template-columns: 400px 400px
+        }
+        .a{
+            grid-column: 1 / 3;
+            grid-row: 1;
+        }
+        .b{
+            grid-column: 1;
+            grid-row: 2;
+        }
+        .c{
+            grid-column: 2;
+            grid-row: 2;
+        }
     </style>
 <?php
     $sc = new \allejo\Socrata\SodaClient('opendata.rdw.nl');
@@ -57,7 +72,7 @@
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search">
             </form>
-            <button type="button" class="btn btn-primary"><a href="car/create">Maak Advert.</a></button>
+            <button type="button" class="btn btn-primary"><a href="/car/car/create">Maak Advert.</a></button>
         </div>
     </nav>
 </div>
@@ -66,25 +81,33 @@
         <div class="container">
             <div class="carTitle">
                 <h1>{{$car[0]["merk"]}} {{$car[0]["handelsbenaming"] }}</h1>
-                <h2>Prijs: 5900 Euro</h2>
+            </div>
+            <div class="carTitle">
+                <h4>Prijs: &euro; 5,900</h4>
             </div>
         </div>
         <div class="container">
-            <div class="gridcontainer-a">
+            <div class="gridcontainer-a carDescription">
+                <br>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti eius fugiat, iure minus nobis quas quos veritatis! Accusantium delectus distinctio ipsa laboriosam minus natus quia quidem similique, soluta tempore?</p>
             <h3>Specificaties</h3>
                 <div class="gridcontainer-c">
-                    <p>Merk: {{$car[0]['merk']}}</p>
-                    <p>Model: {{$car[0]['handelsbenaming']}}</p>
-                    <p>Kleur: {{$car[0]['eerste_kleur']}}</p>
-                    <p>Inrichting: {{$car[0]['inrichting']}}</p>
-                    <p>APK vervaldatum: {{$car[0]['vervaldatum_apk_dt']}}</p>
-                    <p>Aantal cilinders: {{$car[0]['aantal_cilinders']}}</p>
-                    <p>Kenteken: {{$car[0]['kenteken']}}</p>
+                    <p><b>Merk:</b> {{$car[0]['merk']}}</p>
+                    <p><b>Model:</b> {{$car[0]['handelsbenaming']}}</p>
+                    <p><b>Kleur:</b> {{$car[0]['eerste_kleur']}}</p>
+                    <p><b>Inrichting:</b> {{$car[0]['inrichting']}}</p>
+                    <p><b>APK vervaldatum:</b> {{$car[0]['vervaldatum_apk_dt']}}</p>
+                    <p><b>Aantal cilinders:</b> {{$car[0]['aantal_cilinders']}}</p>
+                    <p><b>Kenteken:</b> {{$car[0]['kenteken']}}</p>
+                    <p><b>Massa Rijklaar</b> {{$car[0]['massa_rijklaar']}} KG</p>
                 </div>
             </div>
             <div class="gridcontainer-b">
-                <img src="{{asset("storage/car2.jpg")}}" width="800" height="533" alt="">
+                <div class="gridcontainer-img">
+                    <div class="img a"><img src="{{asset("storage/car3.jpg")}}" width="800" height="533"></div>
+                    <div class="img b"><img src="{{asset("storage/car_dacia_3.jpg")}}" width="400" height="270"></div>
+                    <div class="img c"><img src="{{asset("storage/car_dacia_2.jpg")}}" width="400" height="270"></div>
+                </div>
             </div>
         </div>
     </body>

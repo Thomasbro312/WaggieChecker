@@ -17,14 +17,12 @@
             flex-direction: row;
             flex-wrap: nowrap;
             justify-content: space-around;
-            align-items: center;
+
             align-content: stretch;
         }
         .carDescription{
             width: 400px;
         }
-    </style>
-    <style>
         .gridcontainer{
             grid-template-columns: 100px 100px;
             grid-template-rows: 80px 80px;
@@ -38,6 +36,25 @@
         .gridcontainer-b{
             grid-column: 1;
             grid-row: 1/3;
+        }
+        .container-fluid a{
+            color: white;
+        }
+        .gridcontainer-img{
+            display: grid;
+            grid-template-columns: 400px 400px
+        }
+        .a{
+            grid-column: 1 / 3;
+            grid-row: 1;
+        }
+        .b{
+            grid-column: 1;
+            grid-row: 2;
+        }
+        .c{
+            grid-column: 2;
+            grid-row: 2;
         }
     </style>
 <?php
@@ -55,7 +72,7 @@
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search">
             </form>
-            <button type="button" class="btn btn-primary"><a href="car/create">Maak Advert.</a></button>
+            <button type="button" class="btn btn-primary"><a href="car/car/create">Maak Advert.</a></button>
         </div>
     </nav>
 </div>
@@ -64,11 +81,14 @@
         <div class="container">
             <div class="carTitle">
                 <h1>{{$car[0]["handelsbenaming"] }}</h1>
-                <h2>Prijs: 4000 Euro</h2>
+            </div>
+            <div class="carTitle">
+                <h4>Prijs: &euro; 4,000</h4>
             </div>
         </div>
         <div class="container">
             <div class="gridDescription-a">
+                <br>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti eius fugiat, iure minus nobis quas quos veritatis! Accusantium delectus distinctio ipsa laboriosam minus natus quia quidem similique, soluta tempore?</p>
                 <h3>Specificaties</h3>
                 <div class="gridcontainer-c">
@@ -79,12 +99,15 @@
                     <p><b>APK vervaldatum:</b> {{$car[0]['vervaldatum_apk_dt']}}</p>
                     <p><b>Aantal cilinders:</b> {{$car[0]['aantal_cilinders']}}</p>
                     <p><b>Kenteken:</b> {{$car[0]['kenteken']}}</p>
+                    <p><b>Massa Rijklaar</b> {{$car[0]['massa_rijklaar']}} KG</p>
                 </div>
             </div>
-
             <div class="gridcontainer-b">
-                <img src="{{asset("storage/car1.jpg")}}" width="800" height="533">
+                <div class="gridcontainer-img">
+                    <div class="img a"><img src="{{asset("storage/car1.jpg")}}" width="800" height="533"></div>
+                    <div class="img b"><img src="{{asset("storage/car_lancer_3.jpg")}}" width="400" height="270"></div>
+                    <div class="img c"><img src="{{asset("storage/car_lancer_2.jpg")}}" width="400" height="270"></div>
+                </div>
             </div>
-        </div>
 
     </body>
