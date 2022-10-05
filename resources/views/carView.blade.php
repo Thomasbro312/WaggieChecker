@@ -58,12 +58,8 @@
         }
     </style>
 <?php
-    $sc = new \allejo\Socrata\SodaClient('opendata.rdw.nl');
-    $ds = new SodaDataSet($sc, 'm9d7-ebf2');
-    $soql = new \allejo\Socrata\SoqlQuery();
-    $soql->where("kenteken = '99TJNP'");
-
-    $car = $ds->getDataset($soql);
+    $rdw = new \App\Models\RDW();
+    $car = $rdw->getCarWithLicense($rawCar->kenteken);
 ?>
     <div class="container-md">
     <nav class="navbar navbar-light bg-light">
@@ -80,7 +76,7 @@
     <body>
         <div class="container">
             <div class="carTitle">
-                <h1>{{$car[0]["handelsbenaming"] }}</h1>
+                <h1>{{$car->handelsbenaming }}</h1>
             </div>
             <div class="carTitle">
                 <h4>Prijs: &euro; 4,000</h4>
@@ -92,14 +88,14 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam deleniti eius fugiat, iure minus nobis quas quos veritatis! Accusantium delectus distinctio ipsa laboriosam minus natus quia quidem similique, soluta tempore?</p>
                 <h3>Specificaties</h3>
                 <div class="gridcontainer-c">
-                    <p><b>Merk:</b> {{$car[0]['merk']}}</p>
-                    <p><b>Model:</b> {{$car[0]['handelsbenaming']}}</p>
-                    <p><b>Kleur:</b> {{$car[0]['eerste_kleur']}}</p>
-                    <p><b>Inrichting:</b> {{$car[0]['inrichting']}}</p>
-                    <p><b>APK vervaldatum:</b> {{$car[0]['vervaldatum_apk_dt']}}</p>
-                    <p><b>Aantal cilinders:</b> {{$car[0]['aantal_cilinders']}}</p>
-                    <p><b>Kenteken:</b> {{$car[0]['kenteken']}}</p>
-                    <p><b>Massa Rijklaar</b> {{$car[0]['massa_rijklaar']}} KG</p>
+                    <p><b>Merk:</b> {{$car->merk}}</p>
+                    <p><b>Model:</b> {{$car->handelsbenaming}}</p>
+                    <p><b>Kleur:</b> {{$car->eerste_kleur}}</p>
+                    <p><b>Inrichting:</b> {{$car->inrichting}}</p>
+                    <p><b>APK vervaldatum:</b> {{$car->vervaldatum_apk_dt}}</p>
+                    <p><b>Aantal cilinders:</b> {{$car->aantal_cilinders}}</p>
+                    <p><b>Kenteken:</b> {{$car->kenteken}}</p>
+                    <p><b>Massa Rijklaar</b> {{$car->massa_rijklaar}} KG</p>
                 </div>
             </div>
             <div class="gridcontainer-b">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CarStorage;
+use App\Models\RDW;
 use Illuminate\Http\Request;
 use Illuminate\support\Facades\DB;
 
@@ -15,7 +16,7 @@ class SellCarController extends Controller
      */
     public function index(Request $request)
     {
-        $cars = DB::table('car_storages')->get();
+        $cars = CarStorage::all();
         return view('welcome', ['cars'=> $cars]);
     }
 
@@ -64,7 +65,8 @@ class SellCarController extends Controller
      */
     public function show($id)
     {
-        //
+        $rawCar = CarStorage::findOrFail($id);
+        return view('carView')->with(compact('rawCar'));
     }
 
     /**
