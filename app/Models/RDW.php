@@ -11,11 +11,6 @@ class RDW extends Model
 
     protected $client;
 
-    /**
-     * Endpoints
-     *
-     * @var array
-     */
     protected $endpoints = [
         'info'                  => 'm9d7-ebf2.json',
         'brandstof'             => '8ys7-d773.json',
@@ -24,9 +19,6 @@ class RDW extends Model
         'voertuigklasse'        => 'kmfi-hrps.json'
     ];
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         $this->client = new Client([
@@ -39,12 +31,6 @@ class RDW extends Model
         ]);
     }
 
-    /**
-     * Endpoint
-     *
-     * @param string $data
-     * @return string
-     */
     public function getEndpoint($data)
     {
         if ( empty( $this->endpoints[$data] ) ) {
@@ -54,25 +40,14 @@ class RDW extends Model
         return $this->endpoints[$data];
     }
 
-    /**
-     * Get
-     *
-     * @param string $license
-     * @param string $data
-     * @return mixed
-     */
-
     public function getCarWithLicense($license){
         return $this->getData($license);
     }
 
     public function getData($license, $data = 'info')
     {
-
-
         try {
             $response = ($this->client->get("{$this->getEndpoint($data)}?kenteken={$license}",['verify'=>false]))->getBody();
-
             return json_decode($response)[0];
         } catch(Exception $e) {
             echo 'Message: ' .$e->getMessage();
