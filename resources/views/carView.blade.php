@@ -60,6 +60,9 @@
 <?php
     $rdw = new \App\Models\RDW();
     $car = $rdw->getCarWithLicense($rawCar->kenteken);
+
+
+    $apks = $rdw->getCarAPK($rawCar->kenteken);
 ?>
     <div class="container-md">
     <nav class="navbar navbar-light bg-light">
@@ -96,6 +99,15 @@
                     <p><b>Aantal cilinders:</b> {{$car->aantal_cilinders}}</p>
                     <p><b>Kenteken:</b> {{$car->kenteken}}</p>
                     <p><b>Massa Rijklaar</b> {{$car->massa_rijklaar}} KG</p>
+                </div>
+                <h3>APK shit</h3>
+                <div class="gridcontainer-c">
+                    @foreach($apks as $apk)
+                        <p>Datum - {{$apk->meld_datum_door_keuringsinstantie_dt}}</p>
+                        <p>Meld datum keuring - {{$apk->meld_datum_door_keuringsinstantie}}</p>
+                        <p>Meld tijd keuring - {{$apk->meld_tijd_door_keuringsinstantie}}</p>
+                        <p>Gebrek identificatie - {{$apk->gebrek_identificatie}} - wat (andere lijst)</p>
+                    @endforeach
                 </div>
             </div>
             <div class="gridcontainer-b">
