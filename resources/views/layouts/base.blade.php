@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="col-lg-6 order-1 order-lg-2">
-                <img src="{{asset('assets/img/car-hero.png')}}" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100">
+                <img src="{{asset('assets/img/car-hero.png')}}" class="img-fluid" alt="" data-aos="zoom-in">
             </div>
         </div>
     </div>
