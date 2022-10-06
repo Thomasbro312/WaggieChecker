@@ -29,7 +29,7 @@
         <a href="index.html" class="logo d-flex align-items-center">
             <h1>WaggieChecker<span>.</span></h1>
         </a>
-        <nav id="navbar" class="navbar">
+        <nav id="nav" class="navbar">
             <ul>
                 <li><a href="#hero">Hoofdpagina.</a></li>
                 <li><a href="#about">Alle autos.</a></li>
