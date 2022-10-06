@@ -17,14 +17,16 @@ use App\Http\Controllers\CarController;
 */
 
 Route::get('/',[NonAuthController::class,'redirect'])->name('redirect');
-
 Route::get('/homepage',[NonAuthController::class,'index'])->name('homepage');
-
 Route::get('/over-ons',[NonAuthController::class,'aboutus'])->name('aboutus');
-
 Route::get('/aanbod',[NonAuthController::class,'aanbod'])->name('aanbod');
+Route::get('/contact',[NonAuthController::class,'contact'])->name('contact');
 
 Route::get('/debug',[NonAuthController::class,'debug']);
+
+
+// AUTH CONTROLLER
+
 
 //Route::get('/', function () {
 //    return view('welcome');

@@ -31,10 +31,10 @@
         </a>
         <nav id="nav" class="navbar">
             <ul>
-                <li><a href="#hero">Hoofdpagina.</a></li>
+                <li><a href="{{route('homepage')}}">Hoofdpagina.</a></li>
                 <li><a href="{{route('aanbod')}}">Alle autos.</a></li>
                 <li><a href="{{route('aboutus')}}">Over ons.</a></li>
-                <li><a href="#contact">Contact.</a></li>
+                <li><a href="{{route('contact')}}">Contact.</a></li>
             </ul>
         </nav><!-- .navbar -->
 
@@ -75,7 +75,7 @@
                 <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon-box">
                         <div class="icon"><i class="bi bi-car-front"></i></div>
-                        <h4 class="title"><a href="" class="stretched-link">Groot aanbod</a></h4>
+                        <h4 class="title"><a href="{{route('aanbod')}}" class="stretched-link">Groot aanbod</a></h4>
                     </div>
                 </div>
                 <!--End Icon Box -->
