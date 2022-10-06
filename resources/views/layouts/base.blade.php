@@ -36,7 +36,7 @@
                 <li><a href="{{route('aboutus')}}">Over ons.</a></li>
                 <li><a href="{{route('contact')}}">Contact.</a></li>
             </ul>
-        </nav><!-- .navbar -->
+        </nav>
 
         <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
         <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
@@ -70,7 +70,6 @@
                         <h4 class="title"><a href="" class="stretched-link">APK Keuringen</a></h4>
                     </div>
                 </div>
-                <!--End Icon Box -->
 
                 <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon-box">
@@ -78,7 +77,6 @@
                         <h4 class="title"><a href="{{route('aanbod')}}" class="stretched-link">Groot aanbod</a></h4>
                     </div>
                 </div>
-                <!--End Icon Box -->
 
                 <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="icon-box">
@@ -86,7 +84,6 @@
                         <h4 class="title"><a href="" class="stretched-link">Veel informatie</a></h4>
                     </div>
                 </div>
-                <!--End Icon Box -->
 
                 <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
                     <div class="icon-box">
@@ -94,8 +91,6 @@
                         <h4 class="title"><a href="" class="stretched-link">Veel statistieken</a></h4>
                     </div>
                 </div>
-                <!--End Icon Box -->
-
             </div>
         </div>
     </div>
@@ -105,6 +100,38 @@
 
 
     @yield('content')
+
+
+<footer id="footer" class="footer">
+
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-lg-5 col-md-12 footer-info">
+                <a href="index.html" class="logo d-flex align-items-center">
+                    <span>WaggieChecker</span>
+                </a>
+                <p>Jouw platform om je auto te verkopen!</p>
+                <div class="social-links d-flex mt-4">
+                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="copyright">
+            &copy; Copyright <strong><span>WaggieChecker</span></strong>.
+        </div>
+        <div class="credits">
+            Made by <a href="https://devbyte.eu">Devbyte</a>
+        </div>
+    </div>
+
+</footer><!-- End Footer -->
+
     <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js"')}}"></script>
     <script src="{{asset('assets/vendor/aos/aos.js')}}"></script>
     <script src="{{asset('assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
