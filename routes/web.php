@@ -22,6 +22,8 @@ Route::get('/homepage',[NonAuthController::class,'index'])->name('homepage');
 
 Route::get('/over-ons',[NonAuthController::class,'aboutus'])->name('aboutus');
 
+Route::get('/aanbod',[NonAuthController::class,'aanbod'])->name('aanbod');
+
 Route::get('/debug',[NonAuthController::class,'debug']);
 
 //Route::get('/', function () {

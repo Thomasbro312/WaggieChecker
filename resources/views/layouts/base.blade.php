@@ -32,7 +32,7 @@
         <nav id="nav" class="navbar">
             <ul>
                 <li><a href="#hero">Hoofdpagina.</a></li>
-                <li><a href="#about">Alle autos.</a></li>
+                <li><a href="{{route('aanbod')}}">Alle autos.</a></li>
                 <li><a href="{{route('aboutus')}}">Over ons.</a></li>
                 <li><a href="#contact">Contact.</a></li>
             </ul>
