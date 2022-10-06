@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "258aaa0f814eddefc71c9f168743c4e0",
+    "content-hash": "72e6eb20c05bcab9259a56c030643323",
     "packages": [
         {
             "name": "allejo/php-soda",
@@ -113,6 +113,38 @@
                 }
             ],
             "time": "2022-08-10T22:54:19+00:00"
+        },
+        {
+            "name": "devbyte/devbyte-api",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joekoei/devbyte-api.git",
+                "reference": "37154076bda383bca3ac49d4f92df5cf40d0944e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joekoei/devbyte-api/zipball/37154076bda383bca3ac49d4f92df5cf40d0944e",
+                "reference": "37154076bda383bca3ac49d4f92df5cf40d0944e",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.5"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Devbyte\\Api\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Simple API Requests for DevByte projects",
+            "support": {
+                "issues": "https://github.com/joekoei/devbyte-api/issues",
+                "source": "https://github.com/joekoei/devbyte-api/tree/master"
+            },
+            "time": "2022-10-06T17:53:36+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -7971,6 +8003,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "devbyte/devbyte-api": 20,
         "socrata/soda-php": 20
     },
     "prefer-stable": true,

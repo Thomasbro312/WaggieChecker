@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class NonAuthController extends Controller
 {
-
     public function redirect(){
         return redirect()->route("homepage");
     }
