@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NonAuthController;
 use App\Http\Controllers\SellCarController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
@@ -15,15 +16,23 @@ use App\Http\Controllers\CarController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/car',function (){
-    return view("carView");
-});
-Route::get('/car2',function (){
-    return view("carView2");
-});
+Route::get('/',[NonAuthController::class,'redirect'])->name('redirect');
+
+Route::get('/homepage',[NonAuthController::class,'index'])->name('homepage');
+
+Route::get('/over-ons',[NonAuthController::class,'aboutus'])->name('aboutus');
+
+Route::get('/debug',[NonAuthController::class,'debug']);
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+//Route::get('/car',function (){
+//    return view("carView");
+//});
+//Route::get('/car2',function (){
+//    return view("carView2");
+//});
 
 Route::group(['prefix' => 'car'], function(){
     Route::resource('car', SellCarController::class);
