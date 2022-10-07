@@ -13,8 +13,7 @@ class NonAuthController extends Controller
 
     public function index() {
         $cars = CarStorage::all()->count();
-        $cars = 100;
-        $apks = 120;
+        $apks = 10;
         return view('non-auth.homepage')->with(compact('cars','apks'));
     }
 

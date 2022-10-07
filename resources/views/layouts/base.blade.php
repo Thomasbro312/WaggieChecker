@@ -26,7 +26,7 @@
 <body>
 <header id="header" class="header d-flex align-items-center">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
+        <a href="{{route('homepage')}}" class="logo d-flex align-items-center">
             <h1>WaggieChecker<span>.</span></h1>
         </a>
         <nav id="nav" class="navbar">
@@ -35,6 +35,11 @@
                 <li><a href="{{route('aanbod')}}">Alle autos.</a></li>
                 <li><a href="{{route('aboutus')}}">Over ons.</a></li>
                 <li><a href="{{route('contact')}}">Contact.</a></li>
+                @if(Auth::user() != null)
+                    <li><a href="{{route('contact')}}">Account.</a></li>
+                @else
+                    <li><a href="{{route('contact')}}">Inloggen.</a></li>
+                @endif
             </ul>
         </nav>
 
