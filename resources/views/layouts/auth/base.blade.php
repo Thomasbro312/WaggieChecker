@@ -23,7 +23,7 @@
     <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
 
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <header id="header" class="header d-flex align-items-center">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
         <a href="{{route('homepage')}}" class="logo d-flex align-items-center">
@@ -51,7 +51,7 @@
 
 @yield('content')
 
-<footer id="footer" class="footer">
+<footer id="footer" class="footer mt-auto">
 
     <div class="container">
         <div class="row gy-4">
