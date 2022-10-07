@@ -62,8 +62,8 @@
                 <p>Jouw platform om je auto te verkopen!</p>
                 <div class="social-links d-flex mt-4">
                     <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100075864498068" class="facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/devbyteeu/" class="instagram"><i class="bi bi-instagram"></i></a>
                     <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
                 </div>
             </div>

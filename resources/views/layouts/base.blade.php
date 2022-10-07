@@ -36,7 +36,14 @@
                 <li><a href="{{route('aboutus')}}">Over ons.</a></li>
                 <li><a href="{{route('contact')}}">Contact.</a></li>
                 @if(Auth::user() != null)
-                    <li><a href="{{route('contact')}}">Account.</a></li>
+                    <li class="dropdown"><a href="#"><span>{{Auth::user()->name}}.</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                        <ul>
+                            <li><a href="#">Jouw gegevens</a></li>
+                            <li><a href="#">Berichten</a></li>
+                            <li><a href="#">Jouw autos</a></li>
+                            <li><a href="{{route('logout')}}">Log uit</a></li>
+                        </ul>
+                    </li>
                 @else
                     <li><a href="{{route('login')}}">Inloggen.</a></li>
                 @endif
@@ -118,14 +125,13 @@
                 <p>Jouw platform om je auto te verkopen!</p>
                 <div class="social-links d-flex mt-4">
                     <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100075864498068" class="facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/devbyteeu/" class="instagram"><i class="bi bi-instagram"></i></a>
                     <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="container mt-4">
         <div class="copyright">
             &copy; Copyright <strong><span>WaggieChecker</span></strong>.

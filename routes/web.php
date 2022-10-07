@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\NonAuthController;
 use App\Http\Controllers\SellCarController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 
@@ -47,3 +48,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get("/logout",function (){
+   Auth::logout();
+   return redirect()->route('homepage');
+})->name('logout');
