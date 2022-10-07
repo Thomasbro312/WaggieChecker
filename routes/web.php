@@ -21,9 +21,12 @@ Route::get('/',[NonAuthController::class,'redirect'])->name('redirect');
 Route::get('/homepage',[NonAuthController::class,'index'])->name('homepage');
 Route::get('/over-ons',[NonAuthController::class,'aboutus'])->name('aboutus');
 Route::get('/aanbod',[NonAuthController::class,'aanbod'])->name('aanbod');
+Route::get('/aanbod/{id}',[NonAuthController::class,'aanbodCar'])->name('aanbod.car');
+
 Route::get('/contact',[NonAuthController::class,'contact'])->name('contact');
 
 Route::get('/debug',[NonAuthController::class,'debug']);
+Route::get('/pdebug',[NonAuthController::class,'pdebug']);
 
 
 // AUTH CONTROLLER

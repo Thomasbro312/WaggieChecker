@@ -11,9 +11,9 @@
                     @foreach($cars as $car)
                         <div class="col-xl-4 col-md-6 portfolio-item filter-app">
                             <div class="portfolio-wrap">
-                                <a href="carshow" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{$car['img_link']}}" class="img-fluid" alt=""></a>
+                                <a href="" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{$car['img_link']}}" class="img-fluid" alt=""></a>
                                 <div class="portfolio-info">
-                                    <h4><a href="" title="More Details">{{$car['merk']." ".$car['handelsbenaming']}}</a></h4>
+                                    <h4><a href="{{route('aanbod.car',$car)}}" title="More Details">{{$car['merk']." ".$car['handelsbenaming']}}</a></h4>
                                     <p><b>Prijs:</b> &euro; {{$car['prijs']}}<br> <b>Kenteken:</b> {{strtoupper($car['kenteken'])}}</p>
                                 </div>
                             </div>

@@ -26,12 +26,22 @@ class NonAuthController extends Controller
         return view('non-auth.cars')->with(compact('cars'));
     }
 
+    public function aanbodCar(Request $storage){
+        $car = CarStorage::findOrFail($storage->id);
+        return view('non-auth.car-info')->with(compact('car'));
+    }
+
     public function contact(){
         return view('non-auth.contact');
     }
 
     public function debug(){
         return view('debug');
+    }
+
+
+    public function pdebug(){
+        return view('portfoliodebug');
     }
 
 }
