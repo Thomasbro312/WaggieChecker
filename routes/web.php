@@ -28,6 +28,10 @@ Route::get('/contact',[NonAuthController::class,'contact'])->name('contact');
 Route::get('/debug',[NonAuthController::class,'debug']);
 Route::get('/pdebug',[NonAuthController::class,'pdebug']);
 
+Route::get('/chattest',function (){
+   return view('test');
+});
+
 
 // AUTH CONTROLLER
 
