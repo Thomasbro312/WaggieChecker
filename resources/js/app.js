@@ -1,7 +1,7 @@
 import './bootstrap';
 
 import Alpine from 'alpinejs';
-import * as vue from 'vue'
+import vue from '@vitejs/plugin-vue'
 
 window.Alpine = Alpine;
 
@@ -11,6 +11,6 @@ import { createApp } from 'vue'
 
 const app = createApp({})
 app.mount('#app')
-app.component("example-component",'./components/ExampleComponent.vue')
+//app.component("example-component",Example)
 
 Alpine.start();

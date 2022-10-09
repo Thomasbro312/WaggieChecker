@@ -6,11 +6,8 @@
         with event name <code>my-event</code>; it will appear below:
     </p>
     <div id="app">
-        <example-component></example-component>
+{{--        <example-component></example-component>--}}
         <ul>
-{{--            <li v-for="item in items">--}}
-{{--                <h1>{{ item }}</h1>--}}
-{{--            </li>--}}
         </ul>
     </div>
     <script>
