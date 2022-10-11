@@ -38,6 +38,9 @@ Route::get('/chattest',function (){
 
 Route::prefix('auth')->middleware('auth')->group(function () {
     Route::get('/account',[DashboardController::class,'account'])->name('account');
+    Route::get('/account/edit',[DashboardController::class,'editAccount'])->name('edit.account');
+
+    Route::post('/account',[DashboardController::class,'updateAccount'])->name('update.account');
 });
 
 
