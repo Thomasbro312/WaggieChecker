@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NonAuthController;
 use App\Http\Controllers\SellCarController;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,10 @@ Route::get('/chattest',function (){
 
 
 // AUTH CONTROLLER
+
+Route::prefix('auth')->middleware('auth')->group(function () {
+    Route::get('/account',[DashboardController::class,'account'])->name('account');
+});
 
 
 //Route::get('/', function () {

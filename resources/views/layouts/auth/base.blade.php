@@ -35,7 +35,14 @@
                 <li><a href="{{route('aboutus')}}">Over ons.</a></li>
                 <li><a href="{{route('contact')}}">Contact.</a></li>
                 @if(Auth::user() != null)
-                    <li><a href="{{route('contact')}}">Account.</a></li>
+                    <li class="dropdown"><a href="#"><span>{{Auth::user()->name}}.</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                        <ul>
+                            <li><a href="{{route('account')}}">Jouw gegevens</a></li>
+                            <li><a href="#">Jouw autos</a></li>
+                            <li><a href="#">Berichten</a></li>
+                            <li><a href="{{route('logout')}}">Log uit</a></li>
+                        </ul>
+                    </li>
                 @else
                     <li><a href="{{route('login')}}">Inloggen.</a></li>
                 @endif

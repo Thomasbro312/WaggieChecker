@@ -38,7 +38,7 @@
                 @if(Auth::user() != null)
                     <li class="dropdown"><a href="#"><span>{{Auth::user()->name}}.</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
-                            <li><a href="#">Jouw gegevens</a></li>
+                            <li><a href="{{route('account')}}">Jouw gegevens</a></li>
                             <li><a href="#">Jouw autos</a></li>
                             <li><a href="#">Berichten</a></li>
                             <li><a href="{{route('logout')}}">Log uit</a></li>
