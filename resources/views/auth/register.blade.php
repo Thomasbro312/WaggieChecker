@@ -22,10 +22,10 @@
                         </div>
 
                         <div class="info-item d-flex">
-                            <a href="{{route('register')}}"><i class="bi bi-person flex-shrink-0"></i></a>
+                            <a href="{{route('login')}}"><i class="bi bi-person flex-shrink-0"></i></a>
                             <div>
-                                <h4>Nog geen account?</h4>
-                                <p>Registreer dan nu!</p>
+                                <h4>Al een account?</h4>
+                                <p>Log dan in!</p>
                             </div>
                         </div>
                     </div>
