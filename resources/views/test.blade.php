@@ -6,7 +6,6 @@
         with event name <code>my-event</code>; it will appear below:
     </p>
     <div id="app">
-{{--        <example-component></example-component>--}}
         <ul>
         </ul>
     </div>
