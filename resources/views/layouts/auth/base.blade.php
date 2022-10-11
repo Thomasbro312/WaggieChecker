@@ -21,8 +21,6 @@
     <link href="{{asset('assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
 </head>
 <body class="d-flex flex-column min-vh-100">
 <header id="header" class="header d-flex align-items-center">
