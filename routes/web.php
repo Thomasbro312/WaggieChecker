@@ -41,6 +41,8 @@ Route::prefix('auth')->middleware('auth')->group(function () {
     Route::get('/account/edit',[DashboardController::class,'editAccount'])->name('edit.account');
 
     Route::post('/account',[DashboardController::class,'updateAccount'])->name('update.account');
+
+    Route::get('/cars',[DashboardController::class,'cars'])->name('account.cars');
 });
 
 

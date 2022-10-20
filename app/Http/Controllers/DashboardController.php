@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CarStorage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,5 +28,10 @@ class DashboardController extends Controller
         $user->save();
 
         return redirect()->route('account');
+    }
+
+    public function cars(){
+        $cars = CarStorage::all()->where('owner_id','=',Auth::user()->id);
+        return view('authable.car.index')->with(compact('cars'));
     }
 }
