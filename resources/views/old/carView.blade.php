@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"><head>
     <meta charset="utf-8">
-    <?php  use allejo\Socrata\SodaDataset
-    ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title></title>
@@ -117,5 +115,5 @@
                     <div class="img c"><img src="{{asset("storage/car_lancer_2.jpg")}}" width="400" height="270"></div>
                 </div>
             </div>
-
-    </body>
+        </div>
+</body>

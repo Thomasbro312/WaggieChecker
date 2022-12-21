@@ -63,7 +63,7 @@
                 <h2><span>WaggieChecker</span></h2>
                 <p>Vind hier de perfecte auto die bij jou past, of plaats je auto hier te koop.</p>
                 <div class="d-flex justify-content-center justify-content-lg-start">
-                    <a href="#about" class="btn-get-started">Maak je account aan</a>
+                    <a href="{{route('register')}}" class="btn-get-started">Maak je account aan</a>
                 </div>
             </div>
             <div class="col-lg-6 order-1 order-lg-2">
@@ -79,7 +79,7 @@
                 <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon-box">
                         <div class="icon"><i class="bi bi-clipboard-check"></i></div>
-                        <h4 class="title"><a href="" class="stretched-link">APK Keuringen</a></h4>
+                        <h4 class="title"><a href="{{route('kentekencheck')}}" class="stretched-link">Kenteken Checker</a></h4>
                     </div>
                 </div>
 

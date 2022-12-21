@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NonAuthController;
+use App\Http\Controllers\RDWController;
 use App\Http\Controllers\SellCarController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,12 @@ Route::get('/chattest',function (){
    return view('test');
 });
 
+// LICENSE PLATE CHECK
+
+Route::get('/kentekenresult',[NonAuthController::class,'kentekenResult'])->name('kentekenresult');
+Route::get('/kentekencheck',[NonAuthController::class,'kentekenCheck'])->name('kentekencheck');
+
+Route::post('/platecheck',[RDWController::class,'plateCheck'])->name('kenteken.plateCheck');
 
 // AUTH CONTROLLER
 
