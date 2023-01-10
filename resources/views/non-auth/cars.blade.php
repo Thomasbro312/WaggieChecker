@@ -14,7 +14,12 @@
                                 <a href="" data-gallery="portfolio-gallery-app" class="glightbox"><img src="{{$car['img_link']}}" class="img-fluid" alt=""></a>
                                 <div class="portfolio-info">
                                     <h4><a href="{{route('aanbod.car',$car)}}" title="More Details">{{$car['merk']." ".$car['handelsbenaming']}}</a></h4>
-                                    <p><b>Prijs:</b> &euro; {{$car['prijs']}}<br> <b>Kenteken:</b> {{strtoupper($car['kenteken'])}}</p>
+                                    <p>
+                                        <b>Kenteken:</b> {{strtoupper($car['kenteken'])}} <br>
+                                        <b>Bouwjaar:</b> <br>
+                                        <b>Kilometerstand:</b>
+                                    </p>
+                                    <h5 class="portfolio-price"> &euro; {{number_format($car['prijs'], 0, '.', '.')}}</h5>
                                 </div>
                             </div>
                         </div>
