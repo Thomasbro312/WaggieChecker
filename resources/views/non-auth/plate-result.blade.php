@@ -6,24 +6,27 @@
     $car = $rdw->getCarWithLicense($kenteken);
     $apks = $rdw->getCarAPK($kenteken);
     ?>
-    <h3>Specificaties</h3>
-    <div class="gridcontainer-c">
+    <div class="section-header">
+        <h2>Resultaat : {{$car->merk}} {{$car->handelsbenaming}}</h2>
+    </div>
+    <div class="section-header">
         <p><b>Merk:</b> {{$car->merk}}</p>
         <p><b>Model:</b> {{$car->handelsbenaming}}</p>
         <p><b>Kleur:</b> {{$car->eerste_kleur}}</p>
         <p><b>Inrichting:</b> {{$car->inrichting}}</p>
-        <p><b>APK vervaldatum:</b> {{$car->vervaldatum_apk_dt}}</p>
+        <p><b>APK vervaldatum:</b> <?php echo date("d-m-Y",strtotime($car->vervaldatum_apk_dt))?></p>
         <p><b>Aantal cilinders:</b> {{$car->aantal_cilinders}}</p>
         <p><b>Kenteken:</b> {{$car->kenteken}}</p>
         <p><b>Massa Rijklaar</b> {{$car->massa_rijklaar}} KG</p>
     </div>
-    <h3>APK</h3>
-    <div class="gridcontainer-c">
+    <div class="section-header">
+        <h2>APK</h2>
+    </div>
+    <div class="section-header">
         @foreach($apks as $apk)
-            <p>Datum - {{$apk->meld_datum_door_keuringsinstantie_dt}}</p>
-            <p>Meld datum keuring - {{$apk->meld_datum_door_keuringsinstantie}}</p>
+            <p>Datum - <?php echo date('d.m.Y', strtotime($apk->meld_datum_door_keuringsinstantie)) ?></p>
             <p>Meld tijd keuring - {{$apk->meld_tijd_door_keuringsinstantie}}</p>
-            <p>Gebrek identificatie - {{$apk->gebrek_identificatie}} - wat (andere lijst)</p>
+            <p>Gebrek identificatie - {{$apk->gebrek_identificatie}} - wat (andere lijst)</p> <br>
         @endforeach
     </div>
 @endsection
