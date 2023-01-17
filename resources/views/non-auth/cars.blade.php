@@ -16,8 +16,8 @@
                                     <h4><a href="{{route('aanbod.car',$car)}}" title="More Details">{{$car['merk']." ".$car['handelsbenaming']}}</a></h4>
                                     <p>
                                         <b>Kenteken:</b> {{strtoupper($car['kenteken'])}} <br>
-                                        <b>Bouwjaar:</b> <br>
-                                        <b>Kilometerstand:</b>
+                                        <b>Bouwjaar:</b> {{$car['bouwjaar']}}<br>
+                                        <b>Kilometerstand:</b> {{number_format($car['kilometerstand'], 0, '.', '.')}}
                                     </p>
                                     <h5 class="portfolio-price"> &euro; {{number_format($car['prijs'], 0, '.', '.')}}</h5>
                                 </div>

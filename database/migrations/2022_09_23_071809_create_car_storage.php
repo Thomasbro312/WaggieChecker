@@ -22,6 +22,8 @@ return new class extends Migration
             $table->integer("vermogen_in_kw");
             $table->boolean("auto_rook")->nullable();
             $table->string("kenteken")->nullable();
+            $table->integer('bouwjaar')->nullable();
+            $table->integer('kilometerstand')->nullable();
             $table->text('beschrijving')->nullable();
             $table->float('prijs')->nullable();
             $table->text('img_link')->nullable();
