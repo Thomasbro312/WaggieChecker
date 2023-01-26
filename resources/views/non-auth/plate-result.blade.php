@@ -70,10 +70,6 @@
                             <th><?php echo date("d-m-Y",strtotime($car->vervaldatum_apk_dt))?></th>
                         </tr>
                         <tr>
-                            <td colspan="2">Aantal cilinders:</td>
-                            <th>{{$car->aantal_cilinders}}</th>
-                        </tr>
-                        <tr>
                             <td colspan="2">Kenteken:</td>
                             <th>{{$car->kenteken}}</th>
                         </tr>
@@ -87,14 +83,6 @@
                 <table class="table table-striped table-hover">
                     <tbody>
                     <tr>
-                        <td colspan="2">Merk:</td>
-                        <th>{{$car->merk}}</th>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Model:</td>
-                        <th>{{$car->handelsbenaming}}</th>
-                    </tr>
-                    <tr>
                         <td colspan="2">Inrichting:</td>
                         <th>{{$car->inrichting}}</th>
                     </tr>
@@ -103,8 +91,60 @@
                         <th>{{$car->eerste_kleur}}</th>
                     </tr>
                     <tr>
+                        <td colspan="2">Uitvoering:</td>
+                        <th>{{$car->uitvoering}}</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Variant:</td>
+                        <th>{{$car->variant}}</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Zuinigheidsclassificietie:</td>
+                        <th>{{$car->zuinigheidsclassificatie}}</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Wielbasis:</td>
+                        <th>{{$car->wielbasis}} MM</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Eerste Toelating Internationaal:</td>
+                        <th><?php echo date("d-m-Y",strtotime($car->datum_eerste_toelating_dt))?></th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Eerste Toelating Nederland:</td>
+                        <th><?php echo date("d-m-Y",strtotime($car->datum_eerste_tenaamstelling_in_nederland))?></th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Laaste Te naamstelling:</td>
+                        <th><?php echo date("d-m-Y",strtotime($car->datum_tenaamstelling_dt))?></th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Aantal Wielen:</td>
+                        <th>{{$car->aantal_wielen}}</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Aantal Deuren:</td>
+                        <th>{{$car->aantal_deuren}}</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Max massa trekken Ongeremd:</td>
+                        <th>{{$car->maximum_massa_trekken_ongeremd}} KG</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Max Trekmassa Geremd:</td>
+                        <th>{{$car->maximum_trekken_massa_geremd}} KG</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Wam Verzekerd:</td>
+                        <th>{{$car->wam_verzekerd}}</th>
+                    </tr>
+                    <tr>
                         <td colspan="2">APK vervaldatum:</td>
                         <th><?php echo date("d-m-Y",strtotime($car->vervaldatum_apk_dt))?></th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Cilinderinhoud:</td>
+                        <th>{{$car->cilinderinhoud}} MM</th>
                     </tr>
                     <tr>
                         <td colspan="2">Aantal cilinders:</td>
@@ -120,17 +160,26 @@
                     </tr>
                     </tbody>
                 </table>
+                <div class="section-heading"><h4>Apk.</h4></div>
+                @foreach($apks as $apk)
+                    <table class="table table-striped table-hover">
+                        <tbody>
+                        <tr>
+                            <td colspan="2">Datum:</td>
+                            <th><?php echo date("d-m-Y",strtotime($apk->meld_datum_door_keuringsinstantie)) ?></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Meld tijd keuring:</td>
+                            <th>{{$apk->meld_tijd_door_keuringsinstantie}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Gebrek identificatie:</td>
+                            <th>{{$apk->gebrek_identificatie}} - wat (andere lijst)</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                @endforeach
             </div>
         </div>
     </div>
-
-    {{--        <h2>APK</h2>--}}
-    {{--    </div>--}}
-    {{--    <div class="section-header">--}}
-    {{--        @foreach($apks as $apk)--}}
-    {{--            <p>Datum - <?php echo date("d-m-Y",strtotime($apk->meld_datum_door_keuringsinstantie)) ?></p>--}}
-    {{--            <p>Meld tijd keuring - {{$apk->meld_tijd_door_keuringsinstantie}}</p>--}}
-    {{--            <p>Gebrek identificatie - {{$apk->gebrek_identificatie}} - wat (andere lijst)</p> <br>--}}
-    {{--        @endforeach--}}
-    {{--    </div>--}}
 @endsection

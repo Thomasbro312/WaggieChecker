@@ -43,10 +43,6 @@ class NonAuthController extends Controller
         return view('non-auth.plate-result');
     }
 
-    public function kentekenCheck(){
-        return view('non-auth.plate-check');
-    }
-
     public function pdebug(){
         return view('portfoliodebug');
     }
