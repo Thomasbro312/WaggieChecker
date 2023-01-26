@@ -50,6 +50,10 @@ class RDW extends Model
         return $this->getDataArray($license,"gebrekken_indi");
     }
 
+    public function getCarPower($license){
+        return $this->getDataArray2($license,"brandstof");
+    }
+
     public function getCarBreaksWithCode($code){
 
     }
@@ -64,6 +68,15 @@ class RDW extends Model
     }
 
     public function getDataArray($license, $data = 'info'){
+        try {
+            $response = ($this->client->get("{$this->getEndpoint($data)}?kenteken={$license}",['verify'=>false]))->getBody();
+            return json_decode($response);
+        } catch(Exception $e) {
+            echo 'Message: ' .$e->getMessage();
+        }
+    }
+
+    public function getDataArray2($license, $data = 'info'){
         try {
             $response = ($this->client->get("{$this->getEndpoint($data)}?kenteken={$license}",['verify'=>false]))->getBody();
             return json_decode($response);

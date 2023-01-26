@@ -1,20 +1,26 @@
 @extends('layouts.base')
 @section('content')
+
     <section id="hero" class="hero">
         <div class="container position-relative">
-            <div class="row gy-5" data-aos="fade-in">
+            <div class="row gy-5 flex justify-center" data-aos="fade-in">
                 <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
+                    <div class="kenteken_Container">
                     <h2><span>WaggieChecker</span></h2>
                     <div class="info-container d-flex flex-column align-items-center justify-content-center">
                         <form method="post" action="{{route('kenteken.plateCheck')}}">
                             @csrf
-                            <div class="form-group">
-                                <input type="text" name="kenteken" placeholder="Voer hier uw Kenteken in">
                             </div>
-                            <br>
+                            <div class="kenteken2">
+                                <div class="inset2">
+                                    <div class="blue2"></div>
+                                    <input type="text" placeholder="" name="kenteken" />
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <input type="submit" value="Checken" class="btn-get-started">
                             </div>
+{{--                            </div>--}}
                         </form>
                     </div>
                 </div>

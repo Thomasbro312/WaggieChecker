@@ -6,6 +6,7 @@
     $kenteken =  strtoupper($newkenteken);
     $car = $rdw->getCarWithLicense($kenteken);
     $apks = $rdw->getCarAPK($kenteken);
+    $power = $rdw->getCarPower($kenteken);
     ?>
 
     <div class="container">
@@ -45,7 +46,7 @@
                 <div class="section-heading mt-3"><h4>Beschrijving.</h4></div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab accusamus alias aspernatur culpa illum iusto porro quibusdam sapiente? Consectetur cupiditate deserunt incidunt nulla officia quas quos rerum sed suscipit!</p>
             </div>
-            <div class="col-6">
+            <div class="col-6 table-infomation">
                     <div class="section-heading"><h4>Info.</h4></div>
                     <table class=" table table-striped table-hover">
                         <tbody>
@@ -60,6 +61,10 @@
                         <tr>
                             <td colspan="2">Inrichting:</td>
                             <th>{{$car->inrichting}}</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Vermogen in KW:</td>
+                            <th>{{$power[0]->nettomaximumvermogen}}</th>
                         </tr>
                         <tr>
                             <td colspan="2">Kleur:</td>
@@ -79,6 +84,23 @@
                         </tr>
                         </tbody>
                     </table>
+                <div class="section-heading"><h4>Brandstof Gebruik.</h4></div>
+                <table class="table table-striped table-hover">
+                    <tbody>
+                    <tr>
+                        <td colspan="2">Gecombineerd:</td>
+                        <th>{{$power[0]->brandstofverbruik_gecombineerd}}{{" l/100KM"}}</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Buiten stad:</td>
+                        <th>{{$power[0]->brandstofverbruik_buiten}}{{" l/100KM"}}</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Stad:</td>
+                        <th>{{$power[0]->brandstofverbruik_stad}}{{" l/100KM"}}</th>
+                    </tr>
+                    </tbody>
+                </table>
                 <div class="section-heading"><h4>Technische gegevens.</h4></div>
                 <table class="table table-striped table-hover">
                     <tbody>
@@ -97,10 +119,6 @@
                     <tr>
                         <td colspan="2">Variant:</td>
                         <th>{{$car->variant}}</th>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Zuinigheidsclassificietie:</td>
-                        <th>{{$car->zuinigheidsclassificatie}}</th>
                     </tr>
                     <tr>
                         <td colspan="2">Wielbasis:</td>
@@ -144,7 +162,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">Cilinderinhoud:</td>
-                        <th>{{$car->cilinderinhoud}} MM</th>
+                        <th>{{$car->cilinderinhoud}} CC</th>
                     </tr>
                     <tr>
                         <td colspan="2">Aantal cilinders:</td>
