@@ -80,8 +80,8 @@ section {
   position: relative;
 }
 
-.section-heading h3 {
-    font-size: 32px;
+.section-heading h4 {
+    font-size: 24px;
     font-weight: 600;
     margin-bottom: 20px;
     padding-bottom: 5px;
@@ -101,7 +101,7 @@ section {
   bottom: 0;
   margin: auto;
 }
-.section-heading h3:after {
+.section-heading h4:after {
     content: "";
     position: absolute;
     display: block;
