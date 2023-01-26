@@ -2,8 +2,8 @@
 @section('content')
     <?php
     $rdw = new \App\Models\RDW;
-//    $newkenteken = preg_replace('/[^a-zA-Z0-9]/m',"",$data['kenteken']);
-    $kenteken =  strtoupper($data['kenteken']);
+    $newkenteken = preg_replace('/[^a-zA-Z0-9]/m',"",$data['kenteken']);
+    $kenteken =  strtoupper($newkenteken);
     $car = $rdw->getCarWithLicense($kenteken);
     $apks = $rdw->getCarAPK($kenteken);
     ?>
