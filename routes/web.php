@@ -37,7 +37,6 @@ Route::get('/chattest',function (){
 // LICENSE PLATE CHECK
 
 Route::get('/kentekenresult',[NonAuthController::class,'kentekenResult'])->name('kentekenresult');
-Route::get('/kentekencheck',[NonAuthController::class,'kentekenCheck'])->name('kentekencheck');
 
 Route::post('/platecheck',[RDWController::class,'plateCheck'])->name('kenteken.plateCheck');
 
