@@ -46,5 +46,7 @@ class NonAuthController extends Controller
     public function pdebug(){
         return view('portfoliodebug');
     }
-
+    public function comingsoon(){
+        return view('non-auth.comingsoon');
+    }
 }

@@ -24,6 +24,7 @@ Route::get('/homepage',[NonAuthController::class,'index'])->name('homepage');
 Route::get('/over-ons',[NonAuthController::class,'aboutus'])->name('aboutus');
 Route::get('/aanbod',[NonAuthController::class,'aanbod'])->name('aanbod');
 Route::get('/aanbod/{id}',[NonAuthController::class,'aanbodCar'])->name('aanbod.car');
+Route::get('/comingsoon',[NonAuthController::class,'comingsoon'])->name('comingsoon');
 
 Route::get('/contact',[NonAuthController::class,'contact'])->name('contact');
 
