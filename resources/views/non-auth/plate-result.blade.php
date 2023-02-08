@@ -63,10 +63,12 @@
                             <td colspan="2">Inrichting:</td>
                             <th>{{$car->inrichting}}</th>
                         </tr>
+                        @if(!empty($power[0]->nettomaximumvermogen))
                         <tr>
                             <td colspan="2">Vermogen in KW:</td>
                             <th>{{$power[0]->nettomaximumvermogen}}</th>
                         </tr>
+                        @endif
                         <tr>
                             <td colspan="2">Kleur:</td>
                             <th>{{$car->eerste_kleur}}</th>
@@ -163,14 +165,18 @@
                         <td colspan="2">APK vervaldatum:</td>
                         <th><?php echo date("d-m-Y",strtotime($car->vervaldatum_apk_dt))?></th>
                     </tr>
+                    @if(!empty($car->cilinderinhoud))
                     <tr>
                         <td colspan="2">Cilinderinhoud:</td>
                         <th>{{$car->cilinderinhoud}} CC</th>
                     </tr>
+                    @endif
+                    @if(!empty($car->aantal_cilinders))
                     <tr>
                         <td colspan="2">Aantal cilinders:</td>
                         <th>{{$car->aantal_cilinders}}</th>
                     </tr>
+                    @endif
                     <tr>
                         <td colspan="2">Kenteken:</td>
                         <th>{{$car->kenteken}}</th>
