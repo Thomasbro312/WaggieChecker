@@ -25,7 +25,7 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="https://images.pexels.com/photos/214574/pexels-photo-214574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                            <img class="d-block w-100" src="https://cdn.discordapp.com/attachments/912735305122074684/1068223630649073725/Custom_Size_1.png" alt="">
                         </div>
                         <div class="carousel-item">
                             <img class="d-block w-100" src="https://images.pexels.com/photos/2775196/pexels-photo-2775196.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
@@ -84,23 +84,25 @@
                         </tr>
                         </tbody>
                     </table>
-                <div class="section-heading"><h4>Brandstof Gebruik.</h4></div>
-                <table class="table table-striped table-hover">
-                    <tbody>
-                    <tr>
-                        <td colspan="2">Gecombineerd:</td>
-                        <th>{{$power[0]->brandstofverbruik_gecombineerd}}{{" l/100KM"}}</th>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Buiten stad:</td>
-                        <th>{{$power[0]->brandstofverbruik_buiten}}{{" l/100KM"}}</th>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Stad:</td>
-                        <th>{{$power[0]->brandstofverbruik_stad}}{{" l/100KM"}}</th>
-                    </tr>
-                    </tbody>
-                </table>
+                @if(!empty($power[0]->brandstofverbruik_gecombineerd))
+                    <div class="section-heading"><h4>Brandstof Gebruik.</h4></div>
+                    <table class="table table-striped table-hover">
+                        <tbody>
+                        <tr>
+                            <td colspan="2">Gecombineerd:</td>
+                            <th>{{$power[0]->brandstofverbruik_gecombineerd}}{{" l/100KM"}}</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Buiten stad:</td>
+                            <th>{{$power[0]->brandstofverbruik_buiten}}{{" l/100KM"}}</th>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Stad:</td>
+                            <th>{{$power[0]->brandstofverbruik_stad}}{{" l/100KM"}}</th>
+                        </tr>
+                        </tbody>
+                    </table>
+                @endif
                 <div class="section-heading"><h4>Technische gegevens.</h4></div>
                 <table class="table table-striped table-hover">
                     <tbody>
