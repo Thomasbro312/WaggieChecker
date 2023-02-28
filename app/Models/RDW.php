@@ -43,19 +43,19 @@ class RDW extends Model
     }
 
     public function getCarWithLicense($license){
-        return $this->getData($license);
+        return $this->getDataLicense($license);
     }
 
     public function getCarAPK($license){
-        return $this->getDataArray($license,"gebrekken_indi");
+        return $this->getDataInspection($license,"gebrekken_indi");
     }
 
     public function getCarPower($license){
-        return $this->getDataArray2($license,"brandstof");
+        return $this->getDataPower($license,"brandstof");
     }
 
     public function getCarBreaksWithCode($code){
-
+        return $this->getDataFaultCode($code,"gebrekken_code");
     }
 
     public function getDataWithoutLicense($license, $data = 'info') {
@@ -67,7 +67,7 @@ class RDW extends Model
         }
     }
 
-    public function getDataArray($license, $data = 'info'){
+    public function getDataInspection($license, $data = 'info'){
         try {
             $response = ($this->client->get("{$this->getEndpoint($data)}?kenteken={$license}",['verify'=>false]))->getBody();
             return json_decode($response);
@@ -76,7 +76,7 @@ class RDW extends Model
         }
     }
 
-    public function getDataArray2($license, $data = 'info'){
+    public function getDataPower($license, $data = 'info'){
         try {
             $response = ($this->client->get("{$this->getEndpoint($data)}?kenteken={$license}",['verify'=>false]))->getBody();
             return json_decode($response);
@@ -85,7 +85,17 @@ class RDW extends Model
         }
     }
 
-    public function getData($license, $data = 'info')
+    public function getDataFaultCode($license, $data = 'info')
+    {
+        try {
+            $response = ($this->client->get("{$this->getEndpoint($data)}?gebrek_identificatie={$license}",['verify'=>false]))->getBody();
+            return json_decode($response)[0];
+        } catch(Exception $e) {
+            echo 'Message: ' .$e->getMessage();
+        }
+    }
+
+    public function getDataLicense($license, $data = 'info')
     {
         try {
             $response = ($this->client->get("{$this->getEndpoint($data)}?kenteken={$license}",['verify'=>false]))->getBody();
