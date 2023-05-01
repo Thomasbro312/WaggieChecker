@@ -1,3 +1,4 @@
+
 @php use App\Models\RDW; @endphp
 @extends('layouts.base')
 @section('content')
@@ -163,14 +164,19 @@
                         <td colspan="2">Aantal Deuren:</td>
                         <th>{{$car->aantal_deuren}}</th>
                     </tr>
-                    <tr>
-                        <td colspan="2">Max massa trekken Ongeremd:</td>
-                        <th>{{$car->maximum_massa_trekken_ongeremd}} KG</th>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Max Trekmassa Geremd:</td>
-                        <th>{{$car->maximum_trekken_massa_geremd}} KG</th>
-                    </tr>
+                    @if(!empty($car->maximum_trekken_massa_ongeremd))
+                        <tr>
+                            <td colspan="2">Max trekmassa ongeremd:</td>
+                            <th>{{$car->maximum_trekken_massa_ongeremd}} CC</th>
+                        </tr>
+                    @endif
+                    @if(!empty($car->maximum_trekken_massa_ongeremd))
+                        <tr>
+                            <td colspan="2">Max Trekmassa Geremd:</td>
+                            <th>{{$car->maximum_trekken_massa_geremd}} KG</th>
+                        </tr>
+                    @endif
+
                     <tr>
                         <td colspan="2">Wam Verzekerd:</td>
                         <th>{{$car->wam_verzekerd}}</th>
