@@ -36,7 +36,6 @@
                 <li><a href="{{route('aanbod')}}">Alle autos.</a></li>
                 <li><a href="{{route('aboutus')}}">Over ons.</a></li>
                 <li><a href="{{route('contact')}}">Contact.</a></li>
-                <li><a href="{{route('comingsoon')}}">Comingsoon.</a></li>
                 @if(Auth::user() != null)
                     <li class="dropdown"><a href="#"><span>{{Auth::user()->name}}.</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
