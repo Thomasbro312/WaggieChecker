@@ -1,12 +1,10 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NonAuthController;
 use App\Http\Controllers\RDWController;
 use App\Http\Controllers\SellCarController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +19,6 @@ use App\Http\Controllers\CarController;
 
 require __DIR__.'/auth.php';
 
-Route::get("/logout",function (){
-   Auth::logout();
-   return redirect()->route('homepage');
-})->name('logout');
+Route::get('/',[NonAuthController::class,'index'])->name('homepage');
+
+Route::post('/platecheck',[RDWController::class,'plateCheck'])->name('kenteken.plateCheck');
