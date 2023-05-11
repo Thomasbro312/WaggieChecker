@@ -20,7 +20,7 @@
                     </li>
                     <li>
                         <a href="#" class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0  hover:underline hover:underline-offset-8">Nieuws.</a>
-                    </li
+                    </li>
                     <li>
                         <a href="#" class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0  hover:underline hover:underline-offset-8">Profile.</a>
                     </li>
