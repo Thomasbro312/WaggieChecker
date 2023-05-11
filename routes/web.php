@@ -1,12 +1,8 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\NonAuthController;
-use App\Http\Controllers\RDWController;
-use App\Http\Controllers\SellCarController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,57 +15,8 @@ use App\Http\Controllers\CarController;
 |
 */
 
-Route::get('/',[NonAuthController::class,'redirect'])->name('redirect');
-Route::get('/homepage',[NonAuthController::class,'index'])->name('homepage');
-Route::get('/over-ons',[NonAuthController::class,'aboutus'])->name('aboutus');
-Route::get('/aanbod',[NonAuthController::class,'aanbod'])->name('aanbod');
-Route::get('/aanbod/{id}',[NonAuthController::class,'aanbodCar'])->name('aanbod.car');
-Route::get('/comingsoon',[NonAuthController::class,'comingsoon'])->name('comingsoon');
-
-Route::get('/contact',[NonAuthController::class,'contact'])->name('contact');
-
-Route::get('/debug',[NonAuthController::class,'debug']);
-Route::get('/pdebug',[NonAuthController::class,'pdebug']);
-
-Route::get('/chattest',function (){
-   return view('test');
-});
-
-// LICENSE PLATE CHECK
-
-Route::get('/kentekenresult',[NonAuthController::class,'kentekenResult'])->name('kentekenresult');
-
-Route::post('/platecheck',[RDWController::class,'plateCheck'])->name('kenteken.plateCheck');
-
-// AUTH CONTROLLER
-
-Route::prefix('auth')->middleware('auth')->group(function () {
-    Route::get('/account',[DashboardController::class,'account'])->name('account');
-    Route::get('/account/edit',[DashboardController::class,'editAccount'])->name('edit.account');
-
-    Route::post('/account',[DashboardController::class,'updateAccount'])->name('update.account');
-
-    Route::get('/cars',[DashboardController::class,'cars'])->name('account.cars');
-});
-
-
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-//Route::get('/car',function (){
-//    return view("carView");
-//});
-//Route::get('/car2',function (){
-//    return view("carView2");
-//});
-
-Route::group(['prefix' => 'car'], function(){
-    Route::resource('car', SellCarController::class);
-});
-
 require __DIR__.'/auth.php';
 
-Route::get("/logout",function (){
-   Auth::logout();
-   return redirect()->route('homepage');
-})->name('logout');
+Route::get('/',[PagesController::class,'index'])->name('homepage');
+
+Route::post('/platecheck',[DataController::class,'plateCheck'])->name('kenteken.plateCheck');

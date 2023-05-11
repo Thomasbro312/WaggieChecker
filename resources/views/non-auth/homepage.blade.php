@@ -1,92 +1,72 @@
 @extends('layouts.base')
 @section('content')
 
-    <section id="hero" class="hero">
-        <div class="container position-relative">
-            <div class="row gy-5 flex justify-center" data-aos="fade-in">
-                <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
-                    <div class="kenteken_Container">
-                    <h2><span>WaggieChecker</span></h2>
-                    <div class="info-container d-flex flex-column align-items-center justify-content-center">
-                        <form method="post" action="{{route('kenteken.plateCheck')}}">
-                            @csrf
-                            </div>
-                            <div class="kenteken2">
-                                <div class="inset2">
-                                    <div class="blue2"></div>
-                                    <input type="text" placeholder="" name="kenteken" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" value="Checken" class="btn-get-started">
-                            </div>
-{{--                            </div>--}}
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-6 order-1 order-lg-2">
-                    <img src="{{asset('assets/img/car-hero.png')}}" class="img-fluid" alt="" data-aos="zoom-in">
-                </div>
+    <nav class="border-gray-200 bg-[#388174]">
+        <div class="flex flex-wrap justify-between mx-auto p-4">
+            <a href="#" class="flex">
+                <span class="text-left text-white text-2xl font-semibold whitespace-nowrap">WaggieChecker<span class="text-[#f96f59]">.</span> / CarBuddy<span class="text-[#f96f59]">.</span></span>
+            </a>
+            <button data-collapse-toggle="navbar-solid-bg" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden" aria-controls="navbar-solid-bg" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
+                <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent ">
+                    <li>
+                        <a href="#" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-white md:p-0 md:hover:text-white hover:underline hover:underline-offset-8" aria-current="page">Hoofdpagina.</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0  hover:underline hover:underline-offset-8">Aanbod.</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0  hover:underline hover:underline-offset-8">Nieuws.</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0  hover:underline hover:underline-offset-8">Profile.</a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
 
-        <div class="icon-boxes position-relative">
-            <div class="container position-relative">
-                <div class="row gy-4 mt-5">
 
-                    <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bi bi-clipboard-check"></i></div>
-                            <h4 class="title"><a href="" class="stretched-link">Kenteken Checker</a></h4>
-                        </div>
-                    </div>
 
-                    <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bi bi-car-front"></i></div>
-                            <h4 class="title"><a href="{{route('aanbod')}}" class="stretched-link">Groot aanbod</a></h4>
-                        </div>
-                    </div>
 
-                    <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bi bi-display"></i></div>
-                            <h4 class="title"><a href="" class="stretched-link">Veel informatie</a></h4>
-                        </div>
-                    </div>
 
-                    <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bi bi-diagram-2"></i></div>
-                            <h4 class="title"><a href="" class="stretched-link">Veel statistieken</a></h4>
-                        </div>
-                    </div>
-                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <form method="post" action="{{route('kenteken.plateCheck')}}">
+        @csrf
+        </div>
+        <div class="">
+            <div class="">
+                <div class=""></div>
+                <input type="text" placeholder="" name="kenteken" />
             </div>
         </div>
-    </section>
-    <section id="stats-counter" class="stats-counter">
-        <div class="container" data-aos="fade-up">
-            <div class="row gy-4 align-items-center">
-                <div class="col-lg-6">
-                    <img src="{{asset('assets/img/car-hero.png')}}" alt="" class="img-fluid">
-                </div>
-                <div class="col-lg-6">
-                    <div class="stats-item d-flex align-items-center">
-                        <span data-purecounter-start="0" data-purecounter-end="{{$cars}}" data-purecounter-duration="1" class="purecounter"></span>
-                        <p><strong>Geregistreerde Autos</strong> Het aantal autos geregistreerd bij WaggieChecker over de afgelopen jaren.</p>
-                    </div>
-                    <div class="stats-item d-flex align-items-center">
-                        <span data-purecounter-start="0" data-purecounter-end="{{$apks}}" data-purecounter-duration="1" class="purecounter"></span>
-                        <p><strong>APKS</strong> het aantal apks uitgevoerd op alle autos van WaggieChecker</p>
-                    </div>
-
-{{--                    <div class="stats-item d-flex align-items-center">--}}
-{{--                        <span data-purecounter-start="0" data-purecounter-end="453" data-purecounter-duration="1" class="purecounter"></span>--}}
-{{--                        <p><strong>Hours Of Support</strong> aut commodi quaerat</p>--}}
-{{--                    </div>--}}
-                </div>
-            </div>
+        <div class="form-group">
+            <input type="submit" value="Checken" class="btn-get-started">
         </div>
-    </section>
+        {{--                            </div>--}}
+    </form>
+    <img src="" alt="">
 @endsection
