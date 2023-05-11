@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\NonAuthController;
-use App\Http\Controllers\RDWController;
-use App\Http\Controllers\SellCarController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/auth.php';
 
-Route::get('/',[NonAuthController::class,'index'])->name('homepage');
+Route::get('/',[PagesController::class,'index'])->name('homepage');
 
-Route::post('/platecheck',[RDWController::class,'plateCheck'])->name('kenteken.plateCheck');
+Route::post('/platecheck',[DataController::class,'plateCheck'])->name('kenteken.plateCheck');

@@ -1,14 +1,5 @@
-@php use App\Models\RDW; @endphp
 @extends('layouts.base')
 @section('content')
-    <?php
-    $rdw = new RDW;
-    $newkenteken = preg_replace('/[^a-zA-Z0-9]/m', "", $data['kenteken']);
-    $kenteken = strtoupper($newkenteken);
-    $car = $rdw->getCarWithLicense($kenteken);
-    $apks = $rdw->getCarAPK($kenteken);
-    $power = $rdw->getCarPower($kenteken);
-    ?>
             <div class="col-6 table-infomation">
                 <div class="section-heading"><h4>Info.</h4></div>
                 <table class=" table table-striped table-hover">
