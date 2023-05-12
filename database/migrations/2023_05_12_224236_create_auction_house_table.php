@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('omgeving');
-            $table->string('mobile');
+        Schema::create('auction_house', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('car_id')->references('id')->on('cars');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->string("description");
+            $table->integer("price");
+            $table->timestamps();
         });
     }
 
@@ -26,8 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('');
-        });
+        Schema::dropIfExists('auction_house');
     }
 };
