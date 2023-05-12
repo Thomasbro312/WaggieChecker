@@ -18,8 +18,7 @@ class DataController extends Controller
         if(empty(Cache::get($kenteken))){
             $rdw = new RDW();
 
-            $apks = $rdw->getCarAPK($kenteken);
-            $data['apks'] = $apks;
+            $data['apks'] = $rdw->getCarAPK($kenteken);;
             $data['car'] = $rdw->getCarWithLicense($kenteken);
             $data['power'] = $rdw->getCarPower($kenteken)[0];
             Cache::put($kenteken, $data);
