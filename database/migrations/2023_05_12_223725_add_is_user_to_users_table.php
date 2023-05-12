@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('car_storages', function (Blueprint $table) {
-            $table->integer("owner_id");
+        Schema::table('users', function (Blueprint $table) {
+            // can_see_marktplaats = marktplaats checken?
         });
     }
 
@@ -25,7 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('car', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }
