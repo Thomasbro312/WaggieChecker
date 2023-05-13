@@ -10,11 +10,8 @@ class DataController extends Controller
 {
     public function plateCheck(Request $request)
     {
-        $newkenteken = preg_replace('/[^a-zA-Z0-9]/m', "", $request->kenteken);
-        $kenteken = strtoupper($newkenteken);
-
+        $kenteken = strtoupper(preg_replace('/[^a-zA-Z0-9]/m', "", $request->kenteken));
         $data = [];
-
         if(empty(Cache::get($kenteken))){
             $rdw = new RDW();
 
