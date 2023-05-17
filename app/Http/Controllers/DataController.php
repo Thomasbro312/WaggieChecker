@@ -22,6 +22,8 @@ class DataController extends Controller
         } else {
             $data[] = Cache::get($kenteken);
         }
+
+        $data = $data[0];
         return view('non-auth.plate-result')->with(compact('kenteken','data'));
     }
 
